@@ -41,40 +41,38 @@ const ContactForm = () => {
   };
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-        <label className={css.label} htmlFor="name">
-          Name
-        </label>
-        <input
-          className={css.input}
-          type="text"
-          name="inputName"
-          id="name"
-          placeholder="Enter name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          value={inputName}
-          required
-          onChange={handleChange}
-        />
-      {/* <div className={css.div}>
-      </div> */}
-        <label className={css.label} htmlFor="number">
-          Number
-        </label>
-        <input
-          className={css.input}
-          type="tel"
-          name="inputNumber"
-          id="number"
-          placeholder="Enter number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          value={inputNumber}
-          required
-          onChange={handleChange}
-        />
-      {/* <div className={css.div}>
-      </div> */}
+      <label className={css.label} htmlFor="name">
+        Name
+      </label>
+      <input
+        className={css.input}
+        type="text"
+        name="inputName"
+        id="name"
+        placeholder="Enter name"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        value={inputName}
+        required
+        onChange={handleChange}
+      />
+
+      <label className={css.label} htmlFor="number">
+        Number
+      </label>
+      <input
+        className={css.input}
+        type="tel"
+        name="inputNumber"
+        id="number"
+        placeholder="Enter number"
+        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        value={inputNumber}
+        required
+        onChange={handleChange}
+      />
+
       <button className={css.button} type="submit">
         Add contact
       </button>
