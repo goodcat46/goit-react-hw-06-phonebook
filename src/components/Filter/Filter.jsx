@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { applyFilterAction } from 'redux/contactFilter/slice_Filter';
 
 import css from './filter.module.css';
