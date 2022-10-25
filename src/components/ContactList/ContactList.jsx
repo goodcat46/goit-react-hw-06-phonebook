@@ -7,8 +7,9 @@ import css from './contactList.module.css';
 
 const ContactList = () => {
   const { contacts } = useSelector(state => state.contacts);
-  const { filter:{filter} } = useSelector(state => state.filter);
-
+  const { filter } = useSelector(state => state.filter);
+  const test = useSelector(state => state.filter);
+console.log(test)
   function applyFilter() {
     return contacts.filter(
       ({ name }) =>
@@ -22,7 +23,7 @@ const ContactList = () => {
         <Contact key={el.id} id={el.id} name={el.name} number={el.number} />
       ))}
       {contacts.length === 0 && (
-        <li className={css.notification}>Not founded contacts</li>
+        <li className={css.notification}><span className={css.span}>{`Not founded any contacts on your request - "${filter}". Please try again. `}</span><span className={css.donate}>{`or donate ua army`}</span></li>
       )}
     </ul>
   );

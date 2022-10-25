@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './contactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactAction } from 'redux/addContact/slice_Contacts';
+import { addContactAction } from 'redux/slices/sliceContacts';
 
 const ContactForm = () => {
   const [inputName, setInputName] = useState('');
@@ -41,7 +41,6 @@ const ContactForm = () => {
   };
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <div className={css.div}>
         <label className={css.label} htmlFor="name">
           Name
         </label>
@@ -57,8 +56,8 @@ const ContactForm = () => {
           required
           onChange={handleChange}
         />
-      </div>
-      <div className={css.div}>
+      {/* <div className={css.div}>
+      </div> */}
         <label className={css.label} htmlFor="number">
           Number
         </label>
@@ -74,7 +73,8 @@ const ContactForm = () => {
           required
           onChange={handleChange}
         />
-      </div>
+      {/* <div className={css.div}>
+      </div> */}
       <button className={css.button} type="submit">
         Add contact
       </button>

@@ -15,7 +15,7 @@ export const App = () => {
         <ContactForm />
         <Title title="Find contact" />
         <Filter />
-        <ContactList />
+        {/* <ContactList /> */}
       </div>
     </div>
   );
