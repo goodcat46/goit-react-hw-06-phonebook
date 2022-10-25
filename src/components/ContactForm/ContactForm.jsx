@@ -2,24 +2,40 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import css from './contactForm.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContactAction } from 'redux/addContact/slice_Contacts';
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
   const [inputName, setInputName] = useState('');
   const [inputNumber, setInputNumber] = useState('');
-  const seters = {
+  const { contacts } = useSelector(state => state.contacts);
+
+  const dispatch = useDispatch();
+
+  const setersMap = {
     inputName: setInputName,
     inputNumber: setInputNumber,
   };
 
-  // onAddContact
   const handleChange = evt => {
     const { name, value } = evt.target;
-    seters[name](value);
+    setersMap[name](value);
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    onAddContact({ id: nanoid(5), name: inputName, number: inputNumber });
+    const namesArr = contacts.map(el => el.name);
+    if (!namesArr.includes(inputName.toLocaleLowerCase())) {
+      dispatch(
+        addContactAction({
+          id: nanoid(5),
+          name: inputName,
+          number: inputNumber,
+        })
+      );
+    } else {
+      alert(`${inputName} is already in contact.`);
+    }
     // * Очистка інпутів
     setInputName('');
     setInputNumber('');
@@ -66,7 +82,5 @@ const ContactForm = ({ onAddContact }) => {
     </form>
   );
 };
-
-ContactForm.propTypes = { onAddContact: PropTypes.func };
 
 export default ContactForm;
