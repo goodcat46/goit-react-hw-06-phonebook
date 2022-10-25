@@ -7,7 +7,6 @@ import css from './contact.module.css';
 
 const Contact = ({ id, name, number,  }) => {
   const dispatch = useDispatch();
-  console.log(deleteContactAction(id))
 
   return (
     <li className={css.contact}>
